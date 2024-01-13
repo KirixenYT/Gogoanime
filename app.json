@@ -1,0 +1,10 @@
+{
+    "name": "GogoAnime Clone",
+    "description": "Unlimited Steaming Anime On GogoAnime Clone",
+    "keywords": ["php", "gogoanime", "gogoanime-clone", "api", "streaming"],
+    "website": "https://github.com/shashankktiwariii/gogoanime-clone#readme",
+    "repository": "https://github.com/shashankktiwariii/gogoanime-clone",
+    "logo": "https://gogoanimetv.ga/img/logo.png",
+    "image": "heroku/php",
+    "stack": "heroku-22"
+}
