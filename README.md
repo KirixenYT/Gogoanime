@@ -1,4 +1,4 @@
-## API aint WORKING
+## Im lazy to fix the api and this aint really my project
 
 <hr/>
 
