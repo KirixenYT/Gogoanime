@@ -1,6 +1,6 @@
 const url = window.location.pathname.replace("/", "");
 // const url = "naruto"
-const apiURl = `https://api-indianime.herokuapp.com`;
+const apiURl = `https://kitsunime-api.onrender.com`;
 
 function loadAnimeDetails() {
     apiUrlAnimeDetails = `${apiURl}/getAnime/${url}`
@@ -69,7 +69,7 @@ loadAnimeDetails()
 
 function loadRecentRelease() {
     async function loadRecent() {
-        const apiUrlRecentReleases = `${apiURl}/getRecent/1`;
+        const apiUrlRecentReleases = `${apiURl}/getRecentlyAdded/1`;
         const response = await fetch(apiUrlRecentReleases);
         const recentReleases = await response.json();
         //console.log(recentReleases);
