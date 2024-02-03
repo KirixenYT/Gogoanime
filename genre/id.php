@@ -73,7 +73,7 @@ if ($page == ""){
                                                                 <h2>genre <?=$id?></h2>
                                                                 <div class="anime_name_pagination">
                                                                         <div class="pagination">
-                                                                                <ul class='pagination-list'><?php $pagination = file_get_contents("$apiLink/getGenrePage/$genre/$page");$pagination = json_decode($pagination, true); echo str_replace("active","selected",$pagination['pagination']) ?>
+                                                                                <ul class='pagination-list'><?php $pagination = file_get_contents("$apiLink/genrePage/$genre/$page");$pagination = json_decode($pagination, true); echo str_replace("active","selected",$pagination['pagination']) ?>
                                                                                
                                                                         </div>
                                                                 </div>
@@ -81,7 +81,7 @@ if ($page == ""){
                                                         <div class="last_episodes">
                                                                 <ul class="items">
                                                                 <?php
-                                                                    $json = file_get_contents("$apiLink/getGenre/$genre/$page");
+                                                                    $json = file_get_contents("$apiLink/genre/$genre/$page");
                                                                     $json = json_decode($json, true);
                                                                     foreach($json as $genre)  { 
                                                                 ?>
@@ -217,7 +217,7 @@ if ($page == ""){
         <div class="clr"></div>
         <div class="mask"></div>
             <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
-    <script type="text/javascript" src="https://kitsunime.000webhostapp.com/files/js/video.js"></script>
+    <script type="text/javascript" src="https://kitsunime.unaux.com/files/js/video.js"></script>
         <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
         <div class="notice-400" style=" z-index:99999;position: fixed;bottom: 0;text-align: center;width: 100%; left: 0;padding: 10px;background: #939393;color: white;">
         We moved site to <a href="<?=$base_url?>" title="Gogoanime" alt="Gogoanime"
