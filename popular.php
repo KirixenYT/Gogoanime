@@ -201,7 +201,7 @@ if ($page == ""){
     <div class="clr"></div>
     <div class="mask"></div>
         <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
-    <script type="text/javascript" src="https://anikatsu.ga/files/js/video.js"></script>
+    <script type="text/javascript" src="http://kitsunime.unaux.com/files/js/video.js"></script>
     <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
     <?php include('/php/include/footer.php')?>
 
