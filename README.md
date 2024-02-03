@@ -1,7 +1,3 @@
-## Im lazy to fix the api and this aint really my project
-
-<hr/>
-
 ## Features 
 --> Easy to use <br>
 --> Requires no database<br>
