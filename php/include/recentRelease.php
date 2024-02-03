@@ -1,7 +1,7 @@
                         <nav class="menu_recent">
                           <ul>
                           <?php
-                            $json = file_get_contents("$apiLink/getRecent/1/1");
+                            $json = file_get_contents("$apiLink/getRecentlyAdded/1/1");
                             $json = json_decode($json, true);
                             foreach($json as $recentRelease)  { 
                            ?>
