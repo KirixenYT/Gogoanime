@@ -65,14 +65,14 @@ if ($page == ""){
                                 <h2>NEW SEASON</h2>
                                 <div class="anime_name_pagination">
                                     <div class="pagination">
-                                        <ul class='pagination-list'><?php $pagination = file_get_contents("$apiLink/newSeaPage/$page");$pagination = json_decode($pagination, true); echo str_replace("active","selected",$pagination['pagination']) ?>
+                                        <ul class='pagination-list'><?php $pagination = file_get_contents("$apiLink/newSeasonPage/$page");$pagination = json_decode($pagination, true); echo str_replace("active","selected",$pagination['pagination']) ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="last_episodes">
                             <ul class="items">
                                <?php
-                                   $json = file_get_contents("$apiLink/getNewSeason/$page");
+                                   $json = file_get_contents("$apiLink/new-season/$page");
                                    $json = json_decode($json, true);
                                    foreach($json as $newSeason)  { 
                                ?>
@@ -196,7 +196,7 @@ if ($page == ""){
     <div class="clr"></div>
     <div class="mask"></div>
         <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
-    <script type="text/javascript" src="https://anikatsu.ga/files/js/video.js"></script>
+    <script type="text/javascript" src="http://kitsunime.unaux.com/files/js/video.js"></script>
     <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
     <div class="notice-400"
     style=" z-index:99999;position: fixed;bottom: 0;text-align: center;width: 100%; left: 0;padding: 10px;background: #939393;color: white;">
