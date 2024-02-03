@@ -206,7 +206,7 @@
         <div class="clr"></div>
         <div class="mask"></div>
             <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
-    <script type="text/javascript" src="https://anikatsu.ga/files/js/video.js"></script>
+    <script type="text/javascript" src="http://kitsunime.unaux.com/files/js/video.js"></script>
         <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
         <div class="notice-400"
                 style=" z-index:99999;position: fixed;bottom: 0;text-align: center;width: 100%; left: 0;padding: 10px;background: #939393;color: white;">
