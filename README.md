@@ -1,6 +1,26 @@
 # Homepage
 <p align="center">
-  <img src="./readmeimage/homepage.png" alt="Homepage">
+  <img src="./readmeimage/homepage.png" alt="Homepage" width="70%">
+</p>
+
+# Animelist
+<p align="center">
+  <img src="./readmeimage/animelist.png" alt="list" width="70%">
+</p>
+
+# Season
+<p align="center">
+  <img src="./readmeimage/Newseason.png" alt="season" width="70%">
+</p>
+
+# Movies
+<p align="center">
+  <img src="./readmeimage/movies.png" alt="movies" width="70%">
+</p>
+
+# Popular
+<p align="center">
+  <img src="./readmeimage/popular.png" alt="popular" width="70%">
 </p>
 
 
