@@ -1,3 +1,4 @@
+# Homepage
 <p align="center">
   <img src="./readmeimage/homepage.png" alt="Homepage">
 </p>
@@ -12,7 +13,7 @@
 
 ## Acknowledgements
 
-./API Folder is Modified Version of [riimuru/gogoanime-api](https://github.com/riimuru/gogoanime-api) according to the need of the website. 
+[anime-api](https://github.com/kirixenyt/anime-api) The api used for the need of this website. 
 
 ## Requirements
 --> Getting 404?? Make Sure you pasted .htaccess file in your root dir
@@ -21,11 +22,7 @@
 
 ## Online Deployment
 
-Deploy On Heroku
-
-[![Deploy on Heroku](https://camo.githubusercontent.com/6979881d5a96b7b18a057083bb8aeb87ba35fc279452e29034c1e1c49ade0636/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667)](https://heroku.com/deploy?template=https://github.com/KirixenYT/Gogoanime/tree/main)
-<br>
-Or you can deploy on any php hosting such as <a href="https://www.infinityfree.net/">InfinityFree</a>
+You can deploy on any php hosting such as <a href="https://www.infinityfree.net/">InfinityFree</a>
 
 ## Local Deployment
 
