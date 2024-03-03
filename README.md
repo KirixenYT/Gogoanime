@@ -1,27 +1,38 @@
-# Homepage
+<details>
+<summary>Homepage</summary>
 <p align="center">
   <img src="./readmeimage/homepage.png" alt="Homepage" width="70%">
 </p>
+</details>
 
-# Animelist
+<details>
+<summary>Animelist</summary>
 <p align="center">
   <img src="./readmeimage/animelist.png" alt="list" width="70%">
 </p>
+</details>
 
-# Season
+<details>
+<summary>Season</summary>
 <p align="center">
   <img src="./readmeimage/Newseason.png" alt="season" width="70%">
 </p>
+</details>
 
-# Movies
+<details>
+<summary>Movies</summary>
 <p align="center">
   <img src="./readmeimage/movies.png" alt="movies" width="70%">
 </p>
+</details>
 
-# Popular
+<details>
+<summary>Popular</summary>
 <p align="center">
   <img src="./readmeimage/Popular.png" alt="popular" width="70%">
 </p>
+</details>
+
 
 
 ## Features 
