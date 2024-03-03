@@ -51,6 +51,18 @@
 <br>
 --> Php environment (use .htaccess must be enabled in localhost) or Directly Upload the code on php supported hosting (No editing Required Just Upload and Enjoy)
 
+php/info.php
+```
+<?php 
+$base_url = "//{$_SERVER['SERVER_NAME']}";
+$website_name = "GogoAnime"; // The name u want for the website
+$apiLink = ""; // Go here https://github.com/KirixenYT/anime-api and host one, and paste the link without the '/' at the end
+if (date("d") > 15){
+    $apiLink = ""; // same for here
+}
+?>
+```
+
 ## Online Deployment
 
 You can deploy on any php hosting such as <a href="https://www.infinityfree.net/">InfinityFree</a>
