@@ -1,9 +1,6 @@
 <?php
 require_once('./php/info.php'); 
-$page = $_GET['page']; 
-if ($page == ""){
-    $page = 1;
-}
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,7 +63,7 @@ if ($page == ""){
                                 <div class="anime_name_pagination">
                                     <div class="pagination">
                                         <ul class='pagination-list'>
-                                        <ul class='pagination-list'><?php $pagination = file_get_contents("$apiLink/moviePage/$page");$pagination = json_decode($pagination, true); echo str_replace("active","selected",$pagination['pagination']) ?>
+                                        <ul class='pagination-list'><?php $pagination = file_get_contents("$apiLink/moviePage?page=$page");$pagination = json_decode($pagination, true); echo str_replace("active","selected",$pagination['pagination']) ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -75,7 +72,7 @@ if ($page == ""){
                             <div class="last_episodes">
                             <ul class="items">
                                <?php
-                                   $json = file_get_contents("$apiLink/anime-movies/$page");
+                                   $json = file_get_contents("$apiLink/anime-movies?page=$page");
                                    $json = json_decode($json, true);
                                    foreach($json as $movies)  { 
                                ?>
@@ -199,13 +196,25 @@ if ($page == ""){
     <div class="clr"></div>
     <div class="mask"></div>
         <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
-    <script type="text/javascript" src="http://kitsunime.unaux.com/files/js/video.js"></script>
+    <script type="text/javascript" src="<?=$base_url?>/js/files/video.js"></script>
     <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
-    <div class="notice-400"
-    style=" z-index:99999;position: fixed;bottom: 0;text-align: center;width: 100%; left: 0;padding: 10px;background: #939393;color: white;">
-    We moved site to <a href="<?=$base_url?>" title="Gogoanime" alt="Gogoanime"
-      style="color: #ffc119"><?=$website_name?></a>. Please bookmark new site. Thank you!
-    </div>
+    <script type="text/javascript">
+$(document).ready(function () {
+  $('.btn-notice').click(function (e) {
+    $('.bg-notice').hide();
+    $(this).hide();
+  });
+});
+</script>
+<style type="text/css">
+  @media only screen and (min-width: 387px) {
+    .btn-notice {bottom:36px;}  
+  }
+  @media only screen and (max-width: 386px) {
+    .btn-notice {bottom: 52px;}
+  }
+</style>
+<div class="bg-notice" style="position:fixed;z-index:9999;background:#ffc119;bottom:0;text-align:center;color:#000;width:100%;padding:10px 0;font-weight:600;">We moved site to <a href="<?=$base_url?>" title="<?=$website_name?>" alt="<?=$website_name?>">Gogoanime</a>. Please bookmark new site. Thank you!</div><div class="btn-notice" style="position:fixed;z-index:9999;background:#00a651;color:#fff;cursor:pointer;right:0;padding:3px 8px;">x</div>
 
     <script>
         if (document.getElementById('scrollbar2')) {

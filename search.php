@@ -1,8 +1,5 @@
 <?php require_once('./php/info.php'); 
-$page = $_GET['page']; 
-if ($page == ""){
-    $page = 1;
-};
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
 $query = $_GET['keyword']; 
 $query = str_replace(' ', '%20', $query);
 ?>
@@ -67,13 +64,13 @@ $query = str_replace(' ', '%20', $query);
                                                                 <h2>Result Anime Search</h2>
                                                                 <div class="anime_name_pagination">
 			                                           <div class="pagination">
-				                                   <ul class='pagination-list'><?php $pagination = file_get_contents("$apiLink/searchPage/$query/$page");$pagination = json_decode($pagination, true); echo str_replace("active","selected",$pagination['pagination']) ?></ul></div>
+				                                   <ul class='pagination-list'><?php $pagination = file_get_contents("$apiLink/searchPage?keyw=$query&page=$page");$pagination = json_decode($pagination, true); echo str_replace("active","selected",$pagination['pagination']) ?></ul></div>
 		                                                </div>
                                                         </div>
                                                         <div class="last_episodes">
                                                                 <ul class="items">
                                                                 <?php
-                                                                  $json = file_get_contents("$apiLink/search/$query/$page");
+                                                                  $json = file_get_contents("$apiLink/search?keyw=$query&page=$page");
                                                                   $json = json_decode($json, true);
                                                                   foreach($json as $searchResult)  { 
                                                                 ?>
@@ -201,10 +198,8 @@ $query = str_replace(' ', '%20', $query);
         <div class="clr"></div>
         <div class="mask"></div>
             <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
-    <script type="text/javascript" src="http://kitsunime.unaux.com/files/js/video.js"></script>
+    <script type="text/javascript" src="<?=$base_url?>/js/files/video.js"></script>
         <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
-
-        <?php include('./php/include/footer.php'); ?>
 
         <script>
                 if (document.getElementById('scrollbar2')) {

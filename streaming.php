@@ -117,7 +117,7 @@ $episodeArray = $fetchDetails['episode_id'];
                                         <div class="anime_video_body_watch_items load">
                                             <div class="play-video">
                                                 <iframe
-                                                    src="https://anikatsu.ga/player/v1.php?id=<?=$url?>&download=<?=$anime['ep_download']?>"
+                                                    src="https://player.ryuk.to/index.php?id=<?=$url?>&download=<?=$anime['ep_download']?>"
                                                     allowfullscreen="true" frameborder="0" marginwidth="0"
                                                     marginheight="0" scrolling="no"></iframe>
                                             </div>
@@ -147,7 +147,7 @@ $episodeArray = $fetchDetails['episode_id'];
                                     <ul>
                                         <li class="anime">
                                             <a href="#" class="active" rel="1"
-                                                data-video="https://anikatsu.ga/player/v1.php?id=<?=$url?>&download=<?=$anime['ep_download']?>"><i
+                                                data-video="https://player.ryuk.to/index.php?id=<?=$url?>&download=<?=$anime['ep_download']?>"><i
                                                     class="iconlayer-server hydrax"></i>No Ads<span>Choose this
                                                     server</span></a>
                                         </li>
@@ -163,23 +163,13 @@ $episodeArray = $fetchDetails['episode_id'];
                                                     class="iconlayer-anime"></i>Gogo server<span>Choose this
                                                     server</span></a>
                                         </li>
-                                        <li class="streamsb">
-                                            <a href="#" rel="13" data-video="<?=$anime['streamsb']?>">
-                                                <i class="iconlayer-streamsb"></i>Streamsb<span>Choose this
-                                                    server</span></a>
-                                        </li>
-                                        <li class="xstreamcdn">
-                                            <a href="#" rel="13" data-video="<?=$anime['xstreamcdn']?>">
-                                                <i class="iconlayer-xstreamcdn"></i>Xstreamcdn<span>Choose this
-                                                    server</span></a>
-                                        </li>
                                     </ul>
                                 </div>
                                 <div class="clr"></div>
                                 <div class="anime_video_body_comment">
                                     <div class="anime_video_body_comment_name">
                                         <div class="btm-center">
-                                            <script id="dsq-count-scr" src="//gogoanimetv.disqus.com/count.js"
+                                            <script id="dsq-count-scr" src="//kitsunime.disqus.com/count.js"
                                                 async></script>
                                             <div id="specialButton" class="specialButton">
                                                 <span class="txt">Show</span> <a
@@ -199,7 +189,7 @@ $episodeArray = $fetchDetails['episode_id'];
                                             (function () {  // DON'T EDIT BELOW THIS LINE
                                                 var d = document, s = d.createElement('script');
 
-                                                s.src = '//gogoanimetv.disqus.com/embed.js';
+                                                s.src = '//kitsunime.disqus.com/embed.js';
 
                                                 s.setAttribute('data-timestamp', +new Date());
                                                 (d.head || d.body).appendChild(s);
@@ -225,7 +215,7 @@ $episodeArray = $fetchDetails['episode_id'];
                             <input type="hidden" value="<?=$anime['ep_num']?>" id="default_ep" class="default_ep"/>
                             <input type="hidden" value="<?=$anime['alias']?>" id="alias_anime" class="alias_anime"/>
                             <ul id="episode_page">
-                                <?=$anime['episode_page']?>
+                                <?=$anime['episode_id']?>
                             </ul>
                               <div class="clr"></div>
                               <div id="load_ep"></div>
@@ -343,9 +333,8 @@ $episodeArray = $fetchDetails['episode_id'];
     <div class="clr"></div>
     <div class="mask"></div>
         <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
-    <script type="text/javascript" src="http://kitsunime.unaux.com/files/js/video.js"></script>
+    <script type="text/javascript" src="<?=$base_url?>/js/files/video.js"></script>
     <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
-    <?php include('./php/include/footer.php'); ?>
     <script>
     if(document.getElementById('episode_page')){
       var ep_start = $('#episode_page a.active').attr('ep_start');

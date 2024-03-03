@@ -108,9 +108,8 @@
 <div class="clr"></div>
 <div class="mask"></div>
     <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
-    <script type="text/javascript" src="http://kitsunime.unaux.com/files/js/video.js"></script>
+    <script type="text/javascript" src="<?=$base_url?>/js/files/video.js"></script>
 <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
-<?php include('./php/include/footer.php'); ?>
 <script>
 if(document.getElementById('scrollbar2')){
     $('#scrollbar2').tinyscrollbar();

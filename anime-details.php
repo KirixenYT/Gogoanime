@@ -1,12 +1,18 @@
 <?php 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require_once('./php/info.php'); 
-$parts=parse_url($_SERVER['REQUEST_URI']); 
-$page_url=explode('/', $parts['path']);
-$url = $page_url[count($page_url)-1]  ;
-//$url = "naruto";
-$json = file_get_contents("$apiLink/getAnime/$url");
-$fetchDetails = json_decode($json, true); 
-$episodeArray = $fetchDetails['episode_id']; 
+$parts = parse_url($_SERVER['REQUEST_URI']); 
+$page_url = explode('/', $parts['path']);
+$url = $page_url[count($page_url)-1];
+
+$getAnime = file_get_contents("$apiLink/getAnime/$url");
+$getAnime = json_decode($getAnime, true);
+
+// Check if 'episode_id' key exists before accessing it
+$episodelist = isset($getAnime['episode_id']) ? $getAnime['episode_id'] : '';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,21 +20,21 @@ $episodeArray = $fetchDetails['episode_id'];
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="shortcut icon" href="<?=$base_url?>/img/favicon.ico" />
-  <title><?=$fetchDetails['name']?> at <?=$website_name?></title>
+  <title><?= isset($getAnime['name']) ? $getAnime['name'] : 'Anime Details' ?> at <?=$website_name?></title>
 
   <meta name="robots" content="index, follow" />
-  <meta name="description" content="<?=substr($fetchDetails['synopsis'],0, 150)?> ... at <?=$website_name?>" />
-  <meta name="keywords" content="<?=$fetchDetails['name']?>, <?=$fetchDetails['othername']?>">
-  <meta itemprop="image" content="<?=$fetchDetails['imageUrl']?>" />
+  <meta name="description" content="<?= isset($getAnime['synopsis']) ? substr($getAnime['synopsis'], 0, 150) : '' ?> ... at <?=$website_name?>" />
+  <meta name="keywords" content="<?= isset($getAnime['name']) ? $getAnime['name'] : '' ?>, <?= isset($getAnime['othername']) ? $getAnime['othername'] : '' ?>">
+  <meta itemprop="image" content="<?= isset($getAnime['imageUrl']) ? $getAnime['imageUrl'] : '' ?>" />
 
   <meta property="og:site_name" content="<?=$website_name?>" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="<?=$fetchDetails['name']?> at <?=$website_name?>" />
-  <meta property="og:description" content="<?=substr($fetchDetails['synopsis'],0, 150)?> ... at <?=$website_name?>"">
+  <meta property="og:title" content="<?= isset($getAnime['name']) ? $getAnime['name'] : 'Anime Details' ?> at <?=$website_name?>" />
+  <meta property="og:description" content="<?= isset($getAnime['synopsis']) ? substr($getAnime['synopsis'], 0, 150) : '' ?> ... at <?=$website_name?>" />
   <meta property="og:url" content="<?=$base_url?><?php echo $_SERVER['REQUEST_URI'] ?>" />
-  <meta property="og:image" content="<?=$fetchDetails['imageUrl']?>" />
-  <meta property="og:image:secure_url" content="<?=$fetchDetails['imageUrl']?>" />
+  <meta property="og:image" content="<?= isset($getAnime['imageUrl']) ? $getAnime['imageUrl'] : '' ?>" />
+  <meta property="og:image:secure_url" content="<?= isset($getAnime['imageUrl']) ? $getAnime['imageUrl'] : '' ?>" />
 
   <link rel="canonical" href="<?=$base_url?><?php echo $_SERVER['REQUEST_URI'] ?>" />
   <link rel="alternate" hreflang="en-us" href="<?=$base_url?><?php echo $_SERVER['REQUEST_URI'] ?>" />
@@ -60,48 +66,49 @@ $episodeArray = $fetchDetails['episode_id'];
               </div>
               <div class="anime_info_body">
                 <div class="anime_info_body_bg">
-                  <img src="<?=$fetchDetails['imageUrl']?>">
-                  <h1><?=$fetchDetails['name']?></h1>
-                  <!---<p><a class="bookmark bookmark-manage" href="javascript:void(0)"><i></i>Click to manage book marks</a>
-                  </p> --->
-                  <p class="type"><span>Type: </span><?=$fetchDetails['type']?></p>
-                  <p class="type"><span>Plot Summary: </span><?=$fetchDetails['synopsis']?></p>
-                  <p class="type"><span>Genre: </span> <?php echo implode(', ', $fetchDetails['genres'])?></p>
-                  <p class="type"><span>Released: </span><?=$fetchDetails['released']?></p>
-                  <p class="type"><span>Status: </span>
-                    <a href="<?php if ($fetchDetails['status'] == 'Completed') {echo "/status/completed"; }   else  {echo "/status/ongoing";} ?>" title="<?=$fetchDetails['status']?> Anime"><?=$fetchDetails['status']?></a>
-                  </p>
-                  <p class="type"><span>Other name: </span><?=$fetchDetails['othername']?></p>
+                  <img src="<?= isset($getAnime['imageUrl']) ? $getAnime['imageUrl'] : '' ?>">
+                  <h1><?= isset($getAnime['name']) ? $getAnime['name'] : 'Unknown' ?></h1>
+                  <p class="type"><span>Type: </span><?= isset($getAnime['type']) ? $getAnime['type'] : 'Unknown' ?></p>
+                  <p class="type"><span>Plot Summary: </span><?= isset($getAnime['synopsis']) ? $getAnime['synopsis'] : 'Unknown' ?></p>
+                  
+                  <p class="type"><?= isset($getAnime['released']) ? $getAnime['released'] : 'Unknown' ?></p>
+                  <p class="type"><?= isset($getAnime['othername']) ? $getAnime['othername'] : 'Unknown' ?></p>
+                  <p class="type">
+                                        <span>Language:</span> 
+                                            <?php $str = $getAnime['name'];
+                                                $last_word_start = strrpos ( $str , " ") + 1;
+                                                $last_word_end = strlen($str) - 1;
+                                                $last_word = substr($str, $last_word_start, $last_word_end);
+                                                if ($last_word == "(Dub)"){echo "Dubbed";} else {echo "Subbed";}
+                                            ?>
+                                      </p>
+                                      <div class="film-description m-hide">
+
                 </div>
                 <div class="clr"></div>
                 <div class="anime_info_episodes">
-                  <h2><?=$fetchDetails['name']?></h2>
+                  <h2><?= isset($getAnime['name']) ? $getAnime['name'] : 'Unknown' ?></h2>
                   <div class="anime_info_episodes_next">
-                  <?=$fetchDetails['episode_info_html']?>
-
+                    <?= isset($getAnime['episode_info_html']) ? $getAnime['episode_info_html'] : '' ?>
+                  </div>
                 </div>
-                </div>
-
               </div>
               <div class="anime_video_body" style="padding: 0 20px 20px 20px;" >
-                         <ul id="episode_page">
-
-                          <?=$fetchDetails['episode_page']?>
-                          
-                        </ul>
-                   <div class="clr"></div>
-                   <div id="load_ep"></div>
-                   <div class="clr"></div>
-       </div>
-       <div class="clr"></div>
-    <div class="clr"></div>
+                <ul id="episode_page">
+                  <?= isset($getAnime['episode_page']) ? $getAnime['episode_page'] : '' ?>
+                </ul>
+                <div class="clr"></div>
+                <div id="load_ep"></div>
+                <div class="clr"></div>
+              </div>
+              <div class="clr"></div>
+              <div class="clr"></div>
               <div class="anime_info_body">
-                <script id="dsq-count-scr" src="//gogoanimetv.disqus.com/count.js" async></script>
+                <script id="dsq-count-scr" src="//kitsunime.disqus.com/count.js" async></script>
                 <div class="anime_video_body_comment_name">
                   <div class="btm-center">
                     <div id="specialButton" class="specialButton">
-                      <span class="txt">Show</span> <a
-                        href="#disqus_thread">Comments </a>
+                      <span class="txt">Show</span> <a href="#disqus_thread">Comments </a>
                     </div>
                   </div>
                 </div>
@@ -113,15 +120,13 @@ $episodeArray = $fetchDetails['episode_id'];
                   (function () {  // DON'T EDIT BELOW THIS LINE
                     var d = document, s = d.createElement('script');
 
-                    s.src = '//gogoanimetv.disqus.com/embed.js';
+                    s.src = '//kitsunime.disqus.com/embed.js';
 
                     s.setAttribute('data-timestamp', +new Date());
                     (d.head || d.body).appendChild(s);
                   })();
                 </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
-                    rel="nofollow">comments powered by Disqus.</a></noscript>
-
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
               </div>
             </div>
             <div class="clr"></div>
@@ -214,7 +219,7 @@ $episodeArray = $fetchDetails['episode_id'];
         <footer>
           <div class="menu_bottom">
             <a href="/about-us.html">
-              <h3>Abouts us</h3>
+              <h3>About us</h3>
             </a>
             <a href="/contact-us.html">
               <h3>Contact us</h3>
@@ -235,9 +240,8 @@ $episodeArray = $fetchDetails['episode_id'];
   <div class="clr"></div>
   <div class="mask"></div>
       <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
-    <script type="text/javascript" src="http://kitsunime.unaux.com/files/js/video.js"></script>
+    <script type="text/javascript" src="<?=$base_url?>/js/files/video.js"></script>
   <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
-  <?php include('./php/include/footer.php'); ?>
 
 
   <!---- <script>
