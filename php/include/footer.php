@@ -1,6 +1,17 @@
-<div class="notice-400"
-    style=" z-index:99999;position: fixed;bottom: 0;text-align: center;width: 100%; left: 0;padding: 10px;background: #939393;color: white;">
-    We moved site to <a href="<?=$base_url?>" title="Gogoanime" alt="Gogoanime" style="color: #ffc119">
-        <?=$website_name?>
-    </a>. Please bookmark new site. Thank you!
-</div>
+<script type="text/javascript">
+$(document).ready(function () {
+  $('.btn-notice').click(function (e) {
+    $('.bg-notice').hide();
+    $(this).hide();
+  });
+});
+</script>
+<style type="text/css">
+  @media only screen and (min-width: 387px) {
+    .btn-notice {bottom:36px;}  
+  }
+  @media only screen and (max-width: 386px) {
+    .btn-notice {bottom: 52px;}
+  }
+</style>
+<div class="bg-notice" style="position:fixed;z-index:9999;background:#ffc119;bottom:0;text-align:center;color:#000;width:100%;padding:10px 0;font-weight:600;">We moved site to <a href="<?=$base_url?>" title="<?=$website_name?>" alt="<?=$website_name?>">Gogoanime</a>. Please bookmark new site. Thank you!</div><div class="btn-notice" style="position:fixed;z-index:9999;background:#00a651;color:#fff;cursor:pointer;right:0;padding:3px 8px;">x</div>

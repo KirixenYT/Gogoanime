@@ -1,6 +1,6 @@
 const url = window.location.pathname.replace("/", "");
 // const url = "naruto"
-const apiURl = `https://kitsunime-api.onrender.com`;
+const apiURl = `https://api-indianime.herokuapp.com`;
 
 function loadAnimeDetails() {
     apiUrlAnimeDetails = `${apiURl}/getAnime/${url}`
@@ -69,7 +69,7 @@ loadAnimeDetails()
 
 function loadRecentRelease() {
     async function loadRecent() {
-        const apiUrlRecentReleases = `${apiURl}/getRecentlyAdded/1`;
+        const apiUrlRecentReleases = `${apiURl}/getRecent/1`;
         const response = await fetch(apiUrlRecentReleases);
         const recentReleases = await response.json();
         //console.log(recentReleases);
@@ -106,12 +106,12 @@ function loadDisqus(){
     
     <script>
         var disqus_config = function () {
-            this.page.url = 'https://gogoanime3.co/category/shadowverse-flame';
+            this.page.url = 'https://gogoanime.vc/category/shadowverse-flame';
         };
         (function () {  // DON'T EDIT BELOW THIS LINE
             var d = document, s = d.createElement('script');
 
-            s.src = '//kitsunime.disqus.com/embed.js';
+            s.src = '//gogoanimetv.disqus.com/embed.js';
 
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);

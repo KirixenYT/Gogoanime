@@ -1,6 +1,6 @@
 // const url = window.location.pathname.replace("/", "");
 const url = "naruto-episode-1"
-const apiURl = `https://kitsunime-api.onrender.com`;
+const apiURl = `https://api-indianime.herokuapp.com`;
 
 // Declaring Gobally
 const apiUrlEpisodeDetail = `${apiURl}/getEpisode/${url}`;
@@ -158,7 +158,7 @@ function loadEpisodeDetail() {
 loadEpisodeDetail();
 function loadRecentRelease() {
     async function loadRecent() {
-        const apiUrlRecentReleases = `${apiURl}/getRecentlyAdded/1`;
+        const apiUrlRecentReleases = `${apiURl}/getRecent/1`;
         const response = await fetch(apiUrlRecentReleases);
         const recentReleases = await response.json();
         //console.log(recentReleases);

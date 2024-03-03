@@ -1,15 +1,12 @@
 <?php 
 require_once('../php/info.php'); 
-$parts=parse_url($_SERVER['REQUEST_URI']); 
-$page_url=explode('/', $parts['path']);
-$id = $page_url[count($page_url)-1];
-//$id = "winter-2022-anime";
-$subCategory = str_replace("-", " ", $id);
-$page = $_GET['page']; 
-if ($page == ""){
-    $page = 1;
-}
-?>
+$parts = parse_url($_SERVER['REQUEST_URI']); 
+$page_url = explode('/', $parts['path']);
+$url = $page_url[count($page_url)-1];
+$name = str_replace("-", " ", $url);
+$name = ucfirst($name);
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+?> 
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -19,25 +16,25 @@ if ($page == ""){
         <link rel="shortcut icon" href="<?=$base_url?>/img/favicon.ico">
 
 
-        <title>List of <?=$subCategory?> at Gogoanime</title>
+        <title>List of <?=$name?> at Gogoanime</title>
 
         <meta name="robots" content="noodp, noydir" />
-        <meta name="description" content="List of <?=$subCategory?> at Gogoanime">
+        <meta name="description" content="List of <?=$name?> at Gogoanime">
         <meta name="keywords" content="List genre Anime, Anime Movies">
         <meta itemprop="image" content="<?=$base_url?>/img/logo.png" />
 
         <meta property="og:site_name" content="Gogoanime" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="List of <?=$subCategory?> at Gogoanime" />
-        <meta property="og:description" content="List of <?=$subCategory?> at Gogoanime">
+        <meta property="og:title" content="List of <?=$name?> at Gogoanime" />
+        <meta property="og:description" content="List of <?=$name?> at Gogoanime">
         <meta property="og:url" content="" />
         <meta property="og:image" content="<?=$base_url?>/img/logo.png" />
         <meta property="og:image:secure_url" content="<?=$base_url?>/img/logo.png" />
 
         <meta property="twitter:card" content="summary" />
-        <meta property="twitter:title" content="List of <?=$subCategory?> at Gogoanime" />
-        <meta property="twitter:description" content="List of <?=$subCategory?> at Gogoanime" />
+        <meta property="twitter:title" content="List of <?=$name?> at Gogoanime" />
+        <meta property="twitter:description" content="List of <?=$name?> at Gogoanime" />
 
         <link rel="canonical" href="<?=$base_url?><?php echo $_SERVER['REQUEST_URI'] ?>" />
         <link rel="alternate" hreflang="en-us" href="<?=$base_url?><?php echo $_SERVER['REQUEST_URI'] ?>" />
@@ -68,10 +65,10 @@ if ($page == ""){
                                                 <div class="main_body">
                                                         <div class="anime_name anime_movies">
                                                                 <i class="icongec-anime_movies i_pos"></i>
-                                                                <h2><?=$subCategory?></h2>
+                                                                <h2><?=$name?></h2>
                                                                 <div class="anime_name_pagination">
                                                                         <div class="pagination">
-                                                                                <ul class='pagination-list'><?php $pagination = file_get_contents("$apiLink/subCategoryPage/$id/$page");$pagination = json_decode($pagination, true); echo str_replace("active","selected",$pagination['pagination']) ?>
+                                                                                <ul class='pagination-list'><?php $pagination = file_get_contents("$apiLink/subCategoryPage?page=$page&subCategory=$url");$pagination = json_decode($pagination, true); echo str_replace("active","selected",$pagination['pagination']) ?>
                                                                                
                                                                         </div>
                                                                 </div>
@@ -79,7 +76,7 @@ if ($page == ""){
                                                         <div class="last_episodes">
                                                                 <ul class="items">
                                                                 <?php
-                                                                    $json = file_get_contents("$apiLink/season/$id/$page");
+                                                                    $json = file_get_contents("$apiLink/season/$url?page=$page");
                                                                     $json = json_decode($json, true);
                                                                     foreach($json as $genre)  { 
                                                                 ?>
@@ -215,12 +212,25 @@ if ($page == ""){
         <div class="clr"></div>
         <div class="mask"></div>
             <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
-    <script type="text/javascript" src="http://kitsunime.unaux.com/files/js/video.js"></script>
+    <script type="text/javascript" src="<?=$base_url?>/js/files/video.js"></script>
         <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
-        <div class="notice-400" style=" z-index:99999;position: fixed;bottom: 0;text-align: center;width: 100%; left: 0;padding: 10px;background: #939393;color: white;">
-        We moved site to <a href="<?=$base_url?>" title="Gogoanime" alt="Gogoanime"
-          style="color: #ffc119"><?=$website_name?></a>. Please bookmark new site. Thank you!
-        </div>
+        <script type="text/javascript">
+$(document).ready(function () {
+  $('.btn-notice').click(function (e) {
+    $('.bg-notice').hide();
+    $(this).hide();
+  });
+});
+</script>
+<style type="text/css">
+  @media only screen and (min-width: 387px) {
+    .btn-notice {bottom:36px;}  
+  }
+  @media only screen and (max-width: 386px) {
+    .btn-notice {bottom: 52px;}
+  }
+</style>
+<div class="bg-notice" style="position:fixed;z-index:9999;background:#ffc119;bottom:0;text-align:center;color:#000;width:100%;padding:10px 0;font-weight:600;">We moved site to <a href="<?=$base_url?>" title="<?=$website_name?>" alt="<?=$website_name?>">Gogoanime</a>. Please bookmark new site. Thank you!</div><div class="btn-notice" style="position:fixed;z-index:9999;background:#00a651;color:#fff;cursor:pointer;right:0;padding:3px 8px;">x</div>
         <script>
                 if (document.getElementById('scrollbar2')) {
                         $('#scrollbar2').tinyscrollbar();
