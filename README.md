@@ -20,7 +20,7 @@
 
 # Popular
 <p align="center">
-  <img src="./readmeimage/popular.png" alt="popular" width="70%">
+  <img src="./readmeimage/Popular.png" alt="popular" width="70%">
 </p>
 
 
