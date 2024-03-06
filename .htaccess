@@ -8,6 +8,11 @@ RewriteRule ^([^.]+)$ $1.php [NC,L]
 RewriteRule ^category/([a-zA-Z0-9-=_]+) anime-details.php
 RewriteRule ^([a-zA-Z0-9-=_]+)-episode-([a-zA-Z0-9-=_]+) streaming.php
 RewriteRule ^privacy.html staticHTML/privacy.php
+RewriteRule ^contact-us.html staticHTML/contact-us.php
+RewriteRule ^about-us.html staticHTML/about-us.php
+RewriteRule ^login.html staticHTML/login.php
+RewriteRule ^register.html staticHTML/register.php
+RewriteRule ^forget.html staticHTML/forget.php
 RewriteRule ^genre/([a-zA-Z0-9-=_]+) genre/id.php
 RewriteRule ^anime-list-([a-zA-Z0-9-=_]+) anime-list-az.php
 RewriteRule ^sub-category/([a-zA-Z0-9-=_]+) sub-category/id.php

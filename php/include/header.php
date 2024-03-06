@@ -2,12 +2,11 @@
           <div class="menu_top_link">
             <div class="user_auth">
               <ul class="auth">
-                <!---<li class="user">
+                <li class="user">
                   <i class="icongec-login"></i>
                   <a href="/login.html" title="login">Login</a> <a class="fix">|</a>
                   <a href="/register.html" title="Sign up" class="reg">Sign up</a>
-                </li> --->
-
+                </li>
               </ul>
             </div>
             <div class="link_face intro">
@@ -24,9 +23,11 @@
             </div>
 
             <div class="submenu_intro">
-              <a href="#" target="_blank">Request</a>
+              <a href="https://gogotaku.info/login.html" target="_blank">Request</a>
               <span>|</span>
-              <a href="#">Contact us</a>
+              <a href="<?=$base_url?>/contact-us.html">Contact us</a>
+	      <span>|</span>
+      	      <a href="https://gogotaku.info" target="_blank">Gogotaku</a>
             </div>
           </div>
           <div class="clr"></div>

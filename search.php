@@ -42,8 +42,8 @@ $query = str_replace(' ', '%20', $query);
         <script type="text/javascript" src="<?=$base_url?>/js/libraries/jquery.js"></script>
         <script>
                 var base_url = 'https://' + document.domain + '/';
-                var base_url_cdn_api = 'https://ajax.gogo-load.com/';
-                var api_anclytic = 'https://ajax.gogo-load.com/anclytic-ajax.html';
+                var base_url_cdn_api = 'https://ajax.gogocdn.net/';
+                var api_anclytic = 'https://ajax.gogocdn.net/anclytic-ajax.html';
         </script>
         <?php require_once('./php/advertisments/popup.html'); ?>
         <script type="text/javascript" src="https://cdn.gogocdn.net/files/gogo/js/main.js?v=6.9"></script>
@@ -90,6 +90,7 @@ $query = str_replace(' ', '%20', $query);
 
                                         </section>
                                         <section class="content_right">
+                                        <div class="headnav_center"></div>
                                 
                         
                                         <div class="main_body">
@@ -200,6 +201,8 @@ $query = str_replace(' ', '%20', $query);
             <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
     <script type="text/javascript" src="<?=$base_url?>/js/files/video.js"></script>
         <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
+
+        <?php include('./php/include/footer.php'); ?>
 
         <script>
                 if (document.getElementById('scrollbar2')) {

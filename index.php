@@ -1,7 +1,4 @@
-<?php 
-require_once('./php/info.php'); 
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
-?>
+<?php require_once('./php/info.php'); ?>
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +8,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
     <link rel="shortcut icon" href="<?=$base_url?>/img/favicon.ico">
 
-    <title><?=$website_name?> | Watch anime online, English anime online HD</title>
+    <title>Watch anime online, English anime online - <?=$website_name?></title>
 
     <meta name="robots" content="index, follow" />
     <meta name="description"
@@ -45,8 +42,8 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
     <script type="text/javascript" src="<?=$base_url?>/js/libraries/jquery.js"></script>
     <script>
         var base_url = 'https://' + document.domain + '/';
-        var base_url_cdn_api = 'https://ajax.gogo-load.com/';
-        var api_anclytic = 'https://ajax.gogo-load.com/anclytic-ajax.html';
+        var base_url_cdn_api = 'https://ajax.gogocdn.net/';
+        var api_anclytic = 'https://ajax.gogocdn.net/anclytic-ajax.html';
     </script>
     <script type="text/javascript" src="https://cdn.gogocdn.net/files/gogo/js/main.js?v=6.9"></script>
 
@@ -90,7 +87,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
                                 <div class="last_episodes loaddub">
                                     <ul class="items">
                                         <?php
-                                          $json = file_get_contents("$apiLink/recent-release?page=$page&type=1");
+                                          $json = file_get_contents("$apiLink/recent-release?type=1&page=1");
                                           $json = json_decode($json, true);
                                           foreach($json as $recentRelease)  { 
                                         ?>
@@ -131,7 +128,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
                             <div class="added_series_body final">
                                 <ul class="listing">
                                 <?php
-                                    $json = file_get_contents("$apiLink/getRecentlyAdded");
+                                    $json = file_get_contents("$apiLink/getRecentlyAdded?page=1");
                                     $json = json_decode($json, true);
                                     foreach(array_slice($json, 0, 20) as $recentlyAdded)  { 
                                 ?>
@@ -146,6 +143,33 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
                     </section>
                     <section class="content_right">
+			<div class="headnav_center"></div>
+                        <div class="main_body">
+                            <div class="main_body_black">
+                                <div class="anime_name anime_info">
+                                    <i class="icongec-anime_info i_pos"></i>
+                                    <div class="topview">
+                                        <div class="tab">
+                                            <div class="tab_icon one1" onclick="loadTopViews(this, 1)">Day</div>
+                                            <div class="tab_icon one2" onclick="loadTopViews(this, 2)">Week</div>
+                                            <div class="tab_icon one3" onclick="loadTopViews(this, 3)">Month</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="topview" id="load-anclytic">
+                                    <div class="clr"></div>
+                                    <div class="movies_show">
+                                        <div id="laoding">
+                                            <div class="loaders"></div>
+                                        </div>
+                                        <div id="load_topivews" class="views1"></div>
+                                        <div id="load_topivews" class="views2"></div>
+                                        <div id="load_topivews" class="views3"></div>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="clr"></div>
 
                         <div class="clr"></div>
@@ -234,12 +258,9 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
     <div class="clr"></div>
     <div class="mask"></div>
         <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
-    <script type="text/javascript" src="<?=$base_url?>/js/files/video.js"></script>
+    <script type="text/javascript" src="https://anikatsu.ga/files/js/video.js"></script>
     <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
-    <script>
-        LoadFilmOngoing(1);
-    </script>
-            <script type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function () {
   $('.btn-notice').click(function (e) {
     $('.bg-notice').hide();
@@ -255,7 +276,11 @@ $(document).ready(function () {
     .btn-notice {bottom: 52px;}
   }
 </style>
-<div class="bg-notice" style="position:fixed;z-index:9999;background:#ffc119;bottom:0;text-align:center;color:#000;width:100%;padding:10px 0;font-weight:600;">We moved site to <a href="<?=$base_url?>" title="<?=$website_name?>" alt="<?=$website_name?>">Gogoanime</a>. Please bookmark new site. Thank you!</div><div class="btn-notice" style="position:fixed;z-index:9999;background:#00a651;color:#fff;cursor:pointer;right:0;padding:3px 8px;">x</div>
+<div class="bg-notice" style="position:fixed;z-index:9999;background:#ffc119;bottom:0;text-align:center;color:#000;width:100%;padding:10px 0;font-weight:600;">We moved site to <a href="<?=$base_url?>" title="<?=$base_url?>" alt="Gogoanime"><?=$base_url?></a>. Please bookmark new site. Thank you!</div><div class="btn-notice" style="position:fixed;z-index:9999;background:#00a651;color:#fff;cursor:pointer;right:0;padding:3px 8px;">x</div>
+    <script>
+        LoadFilmOngoing(1);
+    </script>
+
     <script>
         if (document.getElementById('scrollbar2')) {
             $('#scrollbar2').tinyscrollbar();

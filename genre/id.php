@@ -48,8 +48,8 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
         <script type="text/javascript" src="<?=$base_url?>/js/libraries/jquery.js"></script>
         <script>
                 var base_url = 'https://' + document.domain + '/';
-                var base_url_cdn_api = 'https://ajax.gogo-load.com/';
-                var api_anclytic = 'https://ajax.gogo-load.com/anclytic-ajax.html';
+                var base_url_cdn_api = 'https://ajax.gogocdn.net/';
+                var api_anclytic = 'https://ajax.gogocdn.net/anclytic-ajax.html';
         </script>
         <?php require_once('../php/advertisments/popup.html'); ?>
         <script type="text/javascript" src="https://cdn.gogocdn.net/files/gogo/js/main.js?v=7.1"></script>
@@ -213,27 +213,10 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
         <div id="off_light"></div>
         <div class="clr"></div>
         <div class="mask"></div>
-            <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
+        <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
     <script type="text/javascript" src="<?=$base_url?>/js/files/video.js"></script>
         <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
-        <script type="text/javascript">
-$(document).ready(function () {
-  $('.btn-notice').click(function (e) {
-    $('.bg-notice').hide();
-    $(this).hide();
-  });
-});
-</script>
-<style type="text/css">
-  @media only screen and (min-width: 387px) {
-    .btn-notice {bottom:36px;}  
-  }
-  @media only screen and (max-width: 386px) {
-    .btn-notice {bottom: 52px;}
-  }
-</style>
-<div class="bg-notice" style="position:fixed;z-index:9999;background:#ffc119;bottom:0;text-align:center;color:#000;width:100%;padding:10px 0;font-weight:600;">We moved site to <a href="<?=$base_url?>" title="<?=$website_name?>" alt="<?=$website_name?>">Gogoanime</a>. Please bookmark new site. Thank you!</div><div class="btn-notice" style="position:fixed;z-index:9999;background:#00a651;color:#fff;cursor:pointer;right:0;padding:3px 8px;">x</div>
-
+        <?php include('../php/include/footer.php')?>
         <script>
                 if (document.getElementById('scrollbar2')) {
                         $('#scrollbar2').tinyscrollbar();

@@ -43,8 +43,8 @@ $episodeArray = $fetchDetails['episode_id'];
   <script type="text/javascript" src="<?=$base_url?>/js/libraries/jquery.js"></script>
   <script>
     var base_url = 'https://' + document.domain + '/';
-    var base_url_cdn_api = 'https://ajax.gogo-load.com/';
-    var api_anclytic = 'https://ajax.gogo-load.com/anclytic-ajax.html';
+    var base_url_cdn_api = 'https://ajax.gogocdn.net/';
+    var api_anclytic = 'https://ajax.gogocdn.net/anclytic-ajax.html';
    </script>
   <script type="text/javascript" src="https://cdn.gogocdn.net/files/gogo/js/main.js"></script>
 
@@ -169,7 +169,7 @@ $episodeArray = $fetchDetails['episode_id'];
                                 <div class="anime_video_body_comment">
                                     <div class="anime_video_body_comment_name">
                                         <div class="btm-center">
-                                            <script id="dsq-count-scr" src="//kitsunime.disqus.com/count.js"
+                                            <script id="dsq-count-scr" src="//gogoanimetv.disqus.com/count.js"
                                                 async></script>
                                             <div id="specialButton" class="specialButton">
                                                 <span class="txt">Show</span> <a
@@ -189,7 +189,7 @@ $episodeArray = $fetchDetails['episode_id'];
                                             (function () {  // DON'T EDIT BELOW THIS LINE
                                                 var d = document, s = d.createElement('script');
 
-                                                s.src = '//kitsunime.disqus.com/embed.js';
+                                                s.src = '//gogoanimetv.disqus.com/embed.js';
 
                                                 s.setAttribute('data-timestamp', +new Date());
                                                 (d.head || d.body).appendChild(s);
@@ -215,7 +215,7 @@ $episodeArray = $fetchDetails['episode_id'];
                             <input type="hidden" value="<?=$anime['ep_num']?>" id="default_ep" class="default_ep"/>
                             <input type="hidden" value="<?=$anime['alias']?>" id="alias_anime" class="alias_anime"/>
                             <ul id="episode_page">
-                                <?=$anime['episode_id']?>
+                                <?=$anime['episode_page']?>
                             </ul>
                               <div class="clr"></div>
                               <div id="load_ep"></div>
@@ -226,6 +226,7 @@ $episodeArray = $fetchDetails['episode_id'];
 
                     </section>
                     <section class="content_right">
+                    <div class="headnav_center"></div>
 
                         <div class="clr"></div>
                         <div class="main_body">
@@ -335,6 +336,7 @@ $episodeArray = $fetchDetails['episode_id'];
         <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
     <script type="text/javascript" src="<?=$base_url?>/js/files/video.js"></script>
     <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
+    <?php include('./php/include/footer.php'); ?>
     <script>
     if(document.getElementById('episode_page')){
       var ep_start = $('#episode_page a.active').attr('ep_start');
