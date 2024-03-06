@@ -33,6 +33,13 @@
 </p>
 </details>
 
+<details>
+<summary>Streaming</summary>
+<p align="center">
+  <img src="./readmeimage/streaming.png" alt="streaming" width="80%">
+</p>
+</details>
+
 
 <hr/>
 
