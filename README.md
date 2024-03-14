@@ -40,9 +40,9 @@
 </p>
 </details>
 
-
-<hr/>
 [![Join our Discord server!](https://invidget.switchblade.xyz/BgTWqFnEss)](https://discord.gg/BgTWqFnEss)
+<hr/>
+
 
 ## Features 
 --> Easy to use <br>
