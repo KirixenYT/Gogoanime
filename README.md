@@ -70,20 +70,6 @@ if (date("d") > 15){
 ?>
 ```
 
-## Local Deployment
-
-You need to have `php` installed on your pc for following the intructions
-
-First download the repository using
-```
-git clone https://github.com/KirixenYT/Gogoanime
-```
-
-Now start the production build of the site using
-```
-php -S localhost:8888
-```
-
 ## Online Deployment
 
 Or you can deploy on any php hosting such as <a href="https://www.infinityfree.net/">InfinityFree</a>
