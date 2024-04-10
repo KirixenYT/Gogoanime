@@ -47,13 +47,13 @@
               <!-- menu top -->
               <nav class="menu_top">
                 <ul>
-                  <!--- <li class="user">
+                  <li class="user">
                     <i class="icongec-login"></i>
                     <a href="/login.html" title="login">Login</a> <a class="fix">|</a>
                     <a href="/register.html" title="Sign up" class="reg">Sign up</a>
-                  </li> --->
+                  </li>
 
-                  <li class="home "><a href="<?=$base_url?>/" title="Home" class="home ads-evt">Home</a></li>
+                  <li class="home "><a href="<?=$base_url?>/home" title="Home" class="home ads-evt">Home</a></li>
                   <li class="list "><a href="<?=$base_url?>/anime-list" title="Anime list"
                       class="list ads-evt">Anime list</a></li>
                   <li class="seri "><a href="<?=$base_url?>/new-season" title="New season"
