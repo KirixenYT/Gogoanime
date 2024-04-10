@@ -1,7 +1,5 @@
 <?php require_once('./php/info.php'); ?>
 <!DOCTYPE html>
-<html>
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -41,251 +39,145 @@
 
     <script type="text/javascript" src="<?=$base_url?>/js/libraries/jquery.js"></script>
     <script>
-        var base_url = 'https://' + document.domain + '/';
+        var base_url = 'http://' + document.domain + '/';
         var base_url_cdn_api = 'https://ajax.gogocdn.net/';
         var api_anclytic = 'https://ajax.gogocdn.net/anclytic-ajax.html';
     </script>
-    <script type="text/javascript" src="https://cdn.gogocdn.net/files/gogo/js/main.js?v=6.9"></script>
+    <script type="text/javascript" src="https://cdn.gogocdn.net/files/gogo/js/main.js"></script>
 
     <?php require_once('./php/advertisments/popup.html'); ?>
     
 </head>
 
-<body>
+
+  <body>
     <div class="clr"></div>
     <div id="wrapper_inside">
-        <div id="wrapper">
-            <div id="wrapper_bg">
-                <?php require_once('./php/include/header.php'); ?>
-                <section class="content">
-                    <section class="content_left">
+      <div id="wrapper">
+        <div id="wrapper_bg">
+          <header>
+  <div class="menu_top_link">
 
-                        <h1 class="seohiden">Gogoanime | Watch anime online, English anime online HD</h1>
-                        <!-- Recent Release--->
-                        <div class="main_body">
-                            <div id="load_recent_release">
-                                <input type="hidden" id="type" name="type" value="1" />
-                                <div class="anime_name recent_release">
-                                    <i class="icongec-recent_release i_pos"></i>
-                                    <h2><a href="javascript:void(0)" class="dub active" rel="1">Recent Release</a> <span
-                                            style="padding:0 10px; color:#010101;">|</span> <a href="javascript:void(0)"
-                                            class="dub " rel="2">DUB</a><span class="chinese"
-                                            style="padding:0 10px; color:#010101;">|</span> <a href="javascript:void(0)"
-                                            class="dub chinese " rel="3">Chinese</a></h2>
-                                    <div class="anime_name_pagination intro">
-                                        <div class="pagination recent">
-                                            <ul class='pagination-list'>
-                                                <li class=selected><a href='?page=1' data-page='1'>1</a></li>
-                                                <li><a href='?page=2' data-page='2'>2</a></li>
-                                                <li><a href='?page=3' data-page='3'>3</a></li>
-                                                <li><a href='?page=4' data-page='4'>4</a></li>
-                                                <li><a href='?page=5' data-page='5'>5</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="last_episodes loaddub">
-                                    <ul class="items">
-                                        <?php
-                                          $json = file_get_contents("$apiLink/recent-release?type=1&page=1");
-                                          $json = json_decode($json, true);
-                                          foreach($json as $recentRelease)  { 
-                                        ?>
-                                        <li>
-                                            <div class="img">
-                                                <a href="/<?=$recentRelease['episodeId']?>"
-                                                    title="<?=$recentRelease['name']?>">
-                                                    <img src="<?=$recentRelease['imgUrl']?>"
-                                                        alt="<?=$recentRelease['name']?>" />
-                                                    <div class="type ic-SUB"></div>
-                                                </a>
-                                            </div>
-                                            <p class="name"><a href="/<?=$recentRelease['episodeId']?>"
-                                                    title="<?=$recentRelease['name']?>"><?=$recentRelease['name']?></a></p>
-                                            <p class="episode">Episode <?=$recentRelease['episodeNum']?></p>
-                                        </li>
-                                        <?php } ?>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clr"></div>
-                        <!--/ Recent Release--->
-                        <!-- Featured Comedy / Romance Anime--->
-                        <div class="main_body">
-                            <div id="load_popular_ongoing">
+    <div class="link_face intro">
+      <a class="btn twitter" href="https://twitter.com/anime_around" target="_blank" data-url=""></a>
+      <a class="btn reddit" href="https://www.reddit.com/r/AroundAnimeTV/" target="_blank" data-url=""></a>
+      <a class="btn facebook" href="https://www.facebook.com/groups/409309663623039" target="_blank"></a>
+      <a class="btn discord" style="margin-right:5px;" href="https://discord.gg/kyVfcGuCCQ" target="_blank" data-url=""></a>
+      <a class="btn telegram" style="margin-right:5px;" href="https://t.me/joinchat/W4lYQ-RGOQ05MmI9" target="_blank" data-url=""></a>
+    </div>
+                    
+    <div class="submenu_intro">
+	    <a href="https://gogotaku.info/login.html" target="_blank">Request</a>
+	    <span>|</span>
+      <a href="/contact-us.html">Contact us</a>
+      <span>|</span>
+      <a href="https://gogotaku.info" target="_blank">Gogotaku</a>
+    </div>          
+  </div>
+  <div class="clr"></div>
 
-                            </div>
-                        </div>
-                        <div class="clr"></div> <!-- /Featured Comedy / Romance Anime--->
+  <!-- banner -->
+  <section class="headnav">
+    <div style="text-align:center;margin-bottom:20px;">
+      <a href="/home"><img src="<?=$base_url?>/img/logo.svg" class="l-logo" alt="gogoanime - Watch Anime Online" /></a>
+    </div>
+    <div style="width:100%;font-family: Tahoma, Geneva, sans-serif;font-size: 14px;text-transform: uppercase;text-align:center;">
+      <!-- menu top -->
+      <nav>
+        <ul>
+          <li style="display:inline-block;margin:0px 18px;">
+            <a style="display: block;color: #fff;padding: 0 0 14px 0px;transition: all 0s linear 0s;webkit-transition: all 0s linear 0s;moz-transition: all 0s linear 0s;o-transition: all 0s linear 0s;" href="/home" title="Home" class="home">Home</a>
+          </li>
+          <li style="display:inline-block;margin:0px 18px;">
+            <a style="display: block;color: #fff;padding: 0 0 14px 0px;transition: all 0s linear 0s;webkit-transition: all 0s linear 0s;moz-transition: all 0s linear 0s;o-transition: all 0s linear 0s;" href="/anime-list" title="Anime list" class="list">Anime list</a>
+          </li>
+          <li style="display:inline-block;margin:0px 18px;">
+            <a style="display: block;color: #fff;padding: 0 0 14px 0px;transition: all 0s linear 0s;webkit-transition: all 0s linear 0s;moz-transition: all 0s linear 0s;o-transition: all 0s linear 0s;" href="/new-season" title="New season" class="series">New season</a>
+          </li>
+          <li style="display:inline-block;margin:0px 18px;">
+            <a style="display: block;color: #fff;padding: 0 0 14px 0px;transition: all 0s linear 0s;webkit-transition: all 0s linear 0s;moz-transition: all 0s linear 0s;o-transition: all 0s linear 0s;" href="/anime-movies" title="Movies" class="movie">Movies</a>
+          </li>
+          <li style="display:inline-block;margin:0px 18px;">
+            <a style="display: block;color: #fff;padding: 0 0 14px 0px;transition: all 0s linear 0s;webkit-transition: all 0s linear 0s;moz-transition: all 0s linear 0s;o-transition: all 0s linear 0s;" href="/popular" title="Popular" class="popular">Popular</a>
+          </li>
+        </ul>	
+      </nav>
+      <!-- /menu top -->
+    </div>
+    <div class="form" style="padding-bottom:20px;width:100%;">
+        <form style="max-width:600px;margin:0 auto;position:relative;text-align:left;" onsubmit="" id="search-form" action="<?=$base_url?>/search" method="get">
+          <div class="row">
+            <input placeholder="search" name="keyword" id="keyword" type="text" value="" autocomplete="off">            
+            <input class="btngui" value="" type="button" name="" onclick="do_search();">
+            <input id="key_pres" name="key_pres" value="" type="hidden" />
+            <input id="link_alias" name="link_alias" value="" type="hidden" />
+            <input id="keyword_search_replace" name="keyword_search_replace" value="" type="hidden" />
+          </div>
+          <div class="hide_search hide"><i class="icongec-muiten"></i></div>
+          <div id="header_search_autocomplete"></div>
+          <div class="loader"></div>
+        </form>           
+        <div class="clr"></div>
+        <div class="search-iph"><a href="javascript:void(0)"><i class="icongec-search-mb"></i></a></div>
+      </div>
+      <div style="text-align:center;color:#00a651;text-transform:none;">Make sure to bookmark the domain <a style="color:#ffc119;" href="https://gogotaku.info/" target="_blank">gogotaku.info</a> to stay updated.</div>
+  </section>
+  <!-- /banner -->
+</header>
 
-                        <!-- Recently Added Series--->
-                        <div class="main_body none">
-                            <div class="anime_name added_series">
-                                <i class="icongec-added_series i_pos"></i>
-                                <h2>Recently Added Series</h2>
-                            </div>
-                            <div class="added_series_body final">
-                                <ul class="listing">
-                                <?php
-                                    $json = file_get_contents("$apiLink/getRecentlyAdded?page=1");
-                                    $json = json_decode($json, true);
-                                    foreach(array_slice($json, 0, 20) as $recentlyAdded)  { 
-                                ?>
-                                    <li>
-                                        <a href="<?=$recentlyAdded['animeId']?>" title="<?=$recentlyAdded['animeName']?>"><?=$recentlyAdded['animeName']?></a>
-                                    </li>
-                                <?php } ?>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- / Recently Added Series--->
 
-                    </section>
-                    <section class="content_right">
-			<div class="headnav_center"></div>
-                        <div class="main_body">
-                            <div class="main_body_black">
-                                <div class="anime_name anime_info">
-                                    <i class="icongec-anime_info i_pos"></i>
-                                    <div class="topview">
-                                        <div class="tab">
-                                            <div class="tab_icon one1" onclick="loadTopViews(this, 1)">Day</div>
-                                            <div class="tab_icon one2" onclick="loadTopViews(this, 2)">Week</div>
-                                            <div class="tab_icon one3" onclick="loadTopViews(this, 3)">Month</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="topview" id="load-anclytic">
-                                    <div class="clr"></div>
-                                    <div class="movies_show">
-                                        <div id="laoding">
-                                            <div class="loaders"></div>
-                                        </div>
-                                        <div id="load_topivews" class="views1"></div>
-                                        <div id="load_topivews" class="views2"></div>
-                                        <div id="load_topivews" class="views3"></div>
-                                    </div>
-                                    <div class="clr"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clr"></div>
+  <div class="main_body">
+    <div style="color:#FFF;padding:18px;">
+	  <h1 style="text-transform:uppercase;font-size:20px;"><?=$website_name?> - Best site to watch anime online for FREE.</h1>
+      <p>When we create gogoanime, we hope for anime fans to have a free anime streaming site with good design and easy to use. Understand the importance of user feedback, as time passes by, we’ve collected all your ideas and requests to make a better version of gogoanime.</p>
+      <p>To avoid multiple blocking, we also decided to moved to gogoanime as <?=$website_name?> With a new domain and better user experience for our beloved anime fans in the world.</p>
+	  <h6 style="font-size:18px;">What's <?=$website_name?>?</h6>
+	  <p><?=$website_name?> is a completely free streaming site for users to watch or download anime in HD quality with English subtitles or dubbing. A vast database, fast update and no registering requirement.</p>
+	  <h6 style="font-size:18px;>Is <?=$website_name?> safe?</h6>
+	  <p>Absolutely! We make changes to improve user experience. <?=$website_name?> is completely safe. If you find any ads that are suspicious, please forward us the information and we will remove it. Hope you will understand that the advertising is needed to maintain the site.</p>
+	  <h6 style="font-size:18px;>Why should I choose <?=$website_name?> ?</h6>
+	  <p>Streaming experience: fast loading and easy to download. We have all the top line streaming servers for you to choose.</p>
+	  <p>Content library: We have all the anime here, from old anime to the new one. You can find all the genres you like such as action; drama; fiction; mystery,... You can also request your favorite anime at gogotaku.info.</p>
+	  <p>Update: Vast content and updating hourly is always a strong point of gogoanime as well as <?=$website_name?>.</p>
+	  <p>Quality/Resolution: We provide high-quality anime in multiple resolutions and allow users to choose the one that suits their preferences and device capabilities</p>
+	  <p>Customer care: Users can always contact us for help or query by clicking on contact us or report the episode.</p>
+	  <p>Device compatibility: <?=$website_name?> work well on both desktop and mobile devices. Fell free to enjoy your favorite anime on any device you want.</p>
+	  <p>Therefore, if you are looking for a great and safe website to watch anime for free. Let’s try <?=$website_name?>. And if you like us, please help spread the word to others and don’t forget to bookmark our site.</p>
+	  <p>Many thanks!</p>
+    </div>
+  </div>
 
-                        <div class="clr"></div>
-                        <div class="main_body">
-                            <div class="main_body_black">
-                                <div class="anime_name ongoing">
-                                    <i class="icongec-ongoing i_pos"></i>
-                                    <h2>ongoing series</h2>
-                                </div>
-                                <div class="series">
-                                    <!-- begon -->
-                                    <div id="scrollbar2">
-                                        <div class="scrollbar">
-                                            <div class="track">
-                                                <div class="thumb">
-                                                    <div class="end"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="viewport">
-                                            <div class="overview">
-                                                <nav class="menu_series cron">
-                                                    <ul>
-                                                    <?php
-                                                      $json = file_get_contents("$apiLink/getOngoingSeries");
-                                                      $json = json_decode($json, true);
-                                                      foreach($json as $ongoingSeries)  { 
-                                                     ?>
-                                                        <li>
-                                                           <a href="<?=$ongoingSeries['animeId']?>"
-                                                           title="<?=$ongoingSeries['animeName']?>"><?=$ongoingSeries['animeName']?></a>
-                                                        </li>
-                                                     <?php } ?>
-                                                    </ul>
-                                                </nav>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- tao thanh cuon 1-->
-                                </div>
-                            </div>
-                        </div>
-                        <style type="text/css">
-                            #scrollbar2 .viewport {
-                                height: 600px !important;
-                            }
-                        </style>
-                        <div class="main_body">
-                            <div class="main_body_black">
-                                <div class="anime_name genre">
-                                    <i class="icongec-genre i_pos"></i>
-                                    <h2>Genres</h2>
-                                </div>
-                                <div class="recent">
-                                    <nav class="menu_series genre right">
-                                        <?php require_once('./php/include/sidebar_genre.htm'); ?>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                        <?php require_once('./php/include/sub-category.html'); ?>
-                    </section>
-                </section>
-                <div class="clr"></div>
-                <footer>
-                    <div class="menu_bottom">
-                        <a href="/about-us.html">
-                            <h3>Abouts us</h3>
-                        </a>
-                        <a href="/contact-us.html">
-                            <h3>Contact us</h3>
-                        </a>
-                        <a href="/privacy.html">
-                            <h3>Privacy</h3>
-                        </a>
-                    </div>
-                    <div class="croll">
-                        <div class="big"><i class="icongec-backtop"></i></div>
-                        <div class="small"><i class="icongec-backtop_mb"></i></div>
-                    </div>
-                </footer>
-            </div>
+  <div style="text-align:center;margin:20px 0;">
+    <a href="<?=$base_url?>/home" style="background:#000;color:#ffc119;font-size:18px;border:1px solid #fff;padding:10px 25px;border-radius:20px;">GO TO HOMEPAGE</a>
+  </div>
+                                                
+     
+          <div class="clr"></div>
+<footer>
+  <div class="menu_bottom">
+    <a href="/about-us.html"><h3>Abouts us</h3></a>
+    <a href="/contact-us.html"><h3>Contact us</h3></a>
+    <a href="/privacy.html"><h3>Privacy</h3></a>
+  </div>
+  <div class="croll">
+    <div class="big"><i class="icongec-backtop"></i></div>
+    <div class="small"><i class="icongec-backtop_mb"></i></div>
+  </div>
+</footer>
         </div>
+      </div>
     </div>
     <div id="off_light"></div>
     <div class="clr"></div>
     <div class="mask"></div>
-        <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
-    <script type="text/javascript" src="https://anikatsu.ga/files/js/video.js"></script>
+    <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
+    <script type="text/javascript" src="<?=$base_url?>/js/files/video.js"></script>
     <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function () {
-  $('.btn-notice').click(function (e) {
-    $('.bg-notice').hide();
-    $(this).hide();
-  });
-});
-</script>
-<style type="text/css">
-  @media only screen and (min-width: 387px) {
-    .btn-notice {bottom:36px;}  
-  }
-  @media only screen and (max-width: 386px) {
-    .btn-notice {bottom: 52px;}
-  }
-</style>
-<div class="bg-notice" style="position:fixed;z-index:9999;background:#ffc119;bottom:0;text-align:center;color:#000;width:100%;padding:10px 0;font-weight:600;">We moved site to <a href="<?=$base_url?>" title="<?=$base_url?>" alt="Gogoanime"><?=$base_url?></a>. Please bookmark new site. Thank you!</div><div class="btn-notice" style="position:fixed;z-index:9999;background:#00a651;color:#fff;cursor:pointer;right:0;padding:3px 8px;">x</div>
+    <?php include('./php/include/footer.php')?>  
     <script>
-        LoadFilmOngoing(1);
+      if(document.getElementById('scrollbar2')){
+        $('#scrollbar2').tinyscrollbar();
+      }
     </script>
-
-    <script>
-        if (document.getElementById('scrollbar2')) {
-            $('#scrollbar2').tinyscrollbar();
-        }
-    </script>
-</body>
-
+  </body>
 </html>
