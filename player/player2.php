@@ -7,9 +7,7 @@ $id = $_GET['id'];
 $json = file_get_contents("https://gogoanime-api-1.onrender.com/vidcdn/watch/$id");
 $video = json_decode($json, true);
 
-// Check if 'sources' key exists in the JSON response
 if (isset($video['sources']) && !empty($video['sources'])) {
-    // Get the highest quality source
     $highest_quality_index = count($video['sources']) - 1;
     $m3u8_url = $video['sources'][$highest_quality_index]['file'];
 } else {
@@ -23,10 +21,8 @@ if (isset($video['sources']) && !empty($video['sources'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Video Player Example</title>
-    <!-- Include Video.js CSS -->
+    <title>Custom Video Player</title>
     <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet" />
-    <!-- Custom CSS for styling -->
     <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
     <style>
         body {
@@ -46,18 +42,15 @@ if (isset($video['sources']) && !empty($video['sources'])) {
 
         .vjs-control-bar .vjs-play-progress {
             background: rgba(0, 255, 0, 0.7) !important;
-            /* Green scrubber */
         }
     </style>
 </head>
 
 <body>
-    <!-- Video container -->
     <video id="video-player" class="video-js vjs-theme-forest vjs-big-play-centered">
         <source src="<?php echo $m3u8_url; ?>" type="application/x-mpegURL">
     </video>
 
-    <!-- Include Video.js and plugins -->
     <script src="https://vjs.zencdn.net/7.15.4/video.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/videojs-http-source-selector@1.1.6/dist/videojs-http-source-selector.min.js">
@@ -68,7 +61,6 @@ if (isset($video['sources']) && !empty($video['sources'])) {
     </script>
 
     <script>
-        // Initialize Video.js
         var player = videojs('video-player', {
             controls: true,
             poster: 'anime.jpg',
@@ -81,26 +73,21 @@ if (isset($video['sources']) && !empty($video['sources'])) {
             }
         });
 
-        // Check if qualityLevels plugin is available
         if (typeof player.qualityLevels === 'function') {
-            // Add HTTP Source Selector plugin
             player.httpSourceSelector();
         } else {
             console.warn('videojs-http-source-selector plugin is not supported.');
         }
 
-        // Initialize the player with the M3U8 URL
         player.src({
             src: '<?php echo $m3u8_url; ?>',
             type: 'application/x-mpegURL'
         });
 
-        // Auto-play the video
         player.ready(function () {
             player.play();
         });
 
-        // Ensure responsiveness
         player.responsive(true);
         player.aspectRatio('16:9');
     </script>
