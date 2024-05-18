@@ -3,7 +3,7 @@ require('../php/info.php');
 
 $id = $_GET['id'];
 
-$json = file_get_contents("https://gogoanime-api-1.onrender.com/vidcdn/watch/$id");
+$json = file_get_contents("$apiLink/vidcdn/watch/$id");
 $video = json_decode($json, true);
 
 if (isset($video['sources']) && !empty($video['sources'])) {
