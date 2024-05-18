@@ -15,42 +15,45 @@ $episodeArray = $fetchDetails['episode_id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <link rel="shortcut icon" href="<?=$base_url?>/img/favicon.ico">
+    <link rel="shortcut icon" href="<?=$base_url?>/img/favicon.ico">
 
-  <title>Watch <?=$anime['animeNameWithEP']?> at <?=$website_name?></title>
+    <title>Watch <?=$anime['animeNameWithEP']?> at <?=$website_name?></title>
 
-  <meta name="robots" content="index, follow" />
-  <meta name="description" content="<?=substr($fetchDetails['synopsis'],0, 150)?> ... at <?=$website_name?>">
-  <meta name="keywords" content="<?=$anime['animeNameWithEP']?>, <?=$fetchDetails['name']?>, Ep <?=$anime['ep_num']?> ,English, Subbed">
-  <meta itemprop="image" content="<?=$fetchDetails['imageUrl']?>" />
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="<?=substr($fetchDetails['synopsis'],0, 150)?> ... at <?=$website_name?>">
+    <meta name="keywords"
+        content="<?=$anime['animeNameWithEP']?>, <?=$fetchDetails['name']?>, Ep <?=$anime['ep_num']?> ,English, Subbed">
+    <meta itemprop="image" content="<?=$fetchDetails['imageUrl']?>" />
 
-  <meta property="og:site_name" content="<?=$website_name?>" />
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Watch <?=$anime['animeNameWithEP']?> at <?=$website_name?>" />
-  <meta property="og:description" content="<?=substr($fetchDetails['synopsis'],0, 150)?> ... at <?=$website_name?>">
-  <meta property="og:url" content="" />
-  <meta property="og:image" content="<?=$fetchDetails['imageUrl']?>" />
-  <meta property="og:image:secure_url" content="<?=$fetchDetails['imageUrl']?>" />
+    <meta property="og:site_name" content="<?=$website_name?>" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Watch <?=$anime['animeNameWithEP']?> at <?=$website_name?>" />
+    <meta property="og:description" content="<?=substr($fetchDetails['synopsis'],0, 150)?> ... at <?=$website_name?>">
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="<?=$fetchDetails['imageUrl']?>" />
+    <meta property="og:image:secure_url" content="<?=$fetchDetails['imageUrl']?>" />
 
-  <link rel="canonical" href="<?=$base_url?><?php echo $_SERVER['REQUEST_URI'] ?>" />
-  <link rel="alternate" hreflang="en-us" href="<?=$base_url?><?php echo $_SERVER['REQUEST_URI'] ?>" />
-  <link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/style.css" />
-  <script type="text/javascript" src="<?=$base_url?>/js/libraries/jquery.js"></script>
-  <script>
-    var base_url = 'https://' + document.domain + '/';
-    var base_url_cdn_api = 'https://ajax.gogocdn.net/';
-    var api_anclytic = 'https://ajax.gogocdn.net/anclytic-ajax.html';
-   </script>
-  <script type="text/javascript" src="https://cdn.gogocdn.net/files/gogo/js/main.js"></script>
+    <link rel="canonical" href="<?=$base_url?><?php echo $_SERVER['REQUEST_URI'] ?>" />
+    <link rel="alternate" hreflang="en-us" href="<?=$base_url?><?php echo $_SERVER['REQUEST_URI'] ?>" />
+    <link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/style.css" />
+    <script type="text/javascript" src="<?=$base_url?>/js/libraries/jquery.js"></script>
+    <script>
+        var base_url = 'https://' + document.domain + '/';
+        var base_url_cdn_api = 'https://ajax.gogocdn.net/';
+        var api_anclytic = 'https://ajax.gogocdn.net/anclytic-ajax.html';
+    </script>
+    <script type="text/javascript" src="https://cdn.gogocdn.net/files/gogo/js/main.js"></script>
 
-  <?php require_once('./php/advertisments/popup.html'); ?>
+    <?php require_once('./php/advertisments/popup.html'); ?>
 
 </head>
+
 <body>
     <div class="clr"></div>
     <div id="wrapper_inside">
@@ -80,7 +83,8 @@ $episodeArray = $fetchDetails['episode_id'];
                                     <span>Category:</span> <?=$fetchDetails['type']?>
                                     <div class="anime-info">
                                         <span>Anime info:</span>
-                                        <a href="/category/<?=$anime['anime_info']?>" title="<?=$fetchDetails['name']?>"><?=$fetchDetails['name']?></a>
+                                        <a href="/category/<?=$anime['anime_info']?>"
+                                            title="<?=$fetchDetails['name']?>"><?=$fetchDetails['name']?></a>
                                     </div>
 
                                     &nbsp;
@@ -89,7 +93,7 @@ $episodeArray = $fetchDetails['episode_id'];
                                         can't watch the video
                                     </div>
                                     <div style="max-height:300px;overflow:hidden;">
-                                        
+
                                     </div>
                                     <div class="download-anime">
                                         <div class="anime_video_note_watch">
@@ -101,9 +105,7 @@ $episodeArray = $fetchDetails['episode_id'];
                                     </div>
                                     <div class="favorites_book">
                                         <ul>
-                                            <li class="dowloads"><a
-                                                    href="<?=$anime['ep_download']?>"
-                                                    target="_blank"><i
+                                            <li class="dowloads"><a href="<?=$anime['ep_download']?>" target="_blank"><i
                                                         class="icongec-dowload"></i><span>Download</span></a></li>
                                             <!---<li class="favorites"><i class="icongec-fa-heart"></i><span>Add to
                                                     Favorites</span></li>-->
@@ -117,7 +119,7 @@ $episodeArray = $fetchDetails['episode_id'];
                                         <div class="anime_video_body_watch_items load">
                                             <div class="play-video">
                                                 <iframe
-                                                    src="https://player.ryuk.to/index.php?id=<?=$url?>&download=<?=$anime['ep_download']?>"
+                                                    src="https://player.ryuk.to?id=<?=$url?>&download=<?=$anime['ep_download']?>"
                                                     allowfullscreen="true" frameborder="0" marginwidth="0"
                                                     marginheight="0" scrolling="no"></iframe>
                                             </div>
@@ -127,50 +129,56 @@ $episodeArray = $fetchDetails['episode_id'];
                                 </div>
                                 <div class="anime_video_body_episodes">
                                     <div class="anime_video_body_episodes_l">
-                                      <a href='<?=$anime['prevEpLink']?>'><?=$anime['prevEpText']?></a>
+                                        <a href='<?=$anime['prevEpLink']?>'><?=$anime['prevEpText']?></a>
                                     </div>
                                     <div class="anime_video_body_episodes_r">
-                                      <a href='<?=$anime['nextEpLink']?>'><?=$anime['nextEpText']?></a>
+                                        <a href='<?=$anime['nextEpLink']?>'><?=$anime['nextEpText']?></a>
                                     </div>
                                 </div>
                                 <div class="clr"></div>
-                                
+
                                 <div class="clr"></div>
                                 <div class="clr"></div>
-                                <div style="margin-top:20px;color:#00a651;font-size:18px;">Please scroll down for servers choosing, thank you.</div>
+                                <div style="margin-top:20px;color:#00a651;font-size:18px;">Please scroll down for
+                                    servers choosing, thank you.</div>
                                 <br>
 
-                                
+
                                 <div class="clr"></div>
 
                                 <div class="anime_muti_link">
                                     <ul>
                                         <li class="anime">
                                             <a href="#" class="active" rel="1"
-                                                data-video="https://player.ryuk.to/index.php?id=<?=$url?>&download=<?=$anime['ep_download']?>"><i
+                                                data-video="https://player.ryuk.to?id=<?=$url?>&download=<?=$anime['ep_download']?>"><i
                                                     class="iconlayer-server hydrax"></i>No Ads<span>Choose this
                                                     server</span></a>
                                         </li>
                                         <li class="anime">
-                                            <a href="#" rel="13"
-                                                data-video="<?=$anime['video']?>"><i
+                                            <a href="#" rel="2"
+                                                data-video="<?=$base_url?>/player/player2.php?id=<?=$url?>&download=<?=$anime['ep_download']?>">
+                                                <i class="iconlayer-server hydrax"></i>Player 2<span>Choose this
+                                                    server</span></a>
+                                        </li>
+                                        <li class="anime">
+                                            <a href="#" rel="13" data-video="<?=$anime['video']?>"><i
                                                     class="iconlayer-anime"></i>Vidstreaming<span>Choose this
                                                     server</span></a>
                                         </li>
                                         <li class="vidcdn">
-                                            <a href="#" rel="100"
-                                                data-video="<?=$anime['gogoserver']?>"><i
+                                            <a href="#" rel="100" data-video="<?=$anime['gogoserver']?>"><i
                                                     class="iconlayer-anime"></i>Gogo server<span>Choose this
                                                     server</span></a>
                                         </li>
+                                        
                                     </ul>
                                 </div>
                                 <div class="clr"></div>
                                 <div class="anime_video_body_comment">
                                     <div class="anime_video_body_comment_name">
                                         <div class="btm-center">
-                                            <script id="dsq-count-scr" src="//gogoanimetv.disqus.com/count.js"
-                                                async></script>
+                                            <script id="dsq-count-scr" src="//gogoanimetv.disqus.com/count.js" async>
+                                            </script>
                                             <div id="specialButton" class="specialButton">
                                                 <span class="txt">Show</span> <a
                                                     href="<?=$base_url?><?=$url?>#disqus_thread">Comments
@@ -186,8 +194,9 @@ $episodeArray = $fetchDetails['episode_id'];
                                             var disqus_config = function () {
                                                 this.page.url = '<?=$base_url?><?=$url?>';
                                             };
-                                            (function () {  // DON'T EDIT BELOW THIS LINE
-                                                var d = document, s = d.createElement('script');
+                                            (function () { // DON'T EDIT BELOW THIS LINE
+                                                var d = document,
+                                                    s = d.createElement('script');
 
                                                 s.src = '//gogoanimetv.disqus.com/embed.js';
 
@@ -210,23 +219,24 @@ $episodeArray = $fetchDetails['episode_id'];
                             </div>
                             <div class="clr"></div>
                             <div class="anime_video_body">
-                              
-                            <input type="hidden" value="<?=$anime['movie_id']?>" id="movie_id" class="movie_id"/>
-                            <input type="hidden" value="<?=$anime['ep_num']?>" id="default_ep" class="default_ep"/>
-                            <input type="hidden" value="<?=$anime['alias']?>" id="alias_anime" class="alias_anime"/>
-                            <ul id="episode_page">
-                                <?=$anime['episode_page']?>
-                            </ul>
-                              <div class="clr"></div>
-                              <div id="load_ep"></div>
-                              <div class="clr"></div>
+
+                                <input type="hidden" value="<?=$anime['movie_id']?>" id="movie_id" class="movie_id" />
+                                <input type="hidden" value="<?=$anime['ep_num']?>" id="default_ep" class="default_ep" />
+                                <input type="hidden" value="<?=$anime['alias']?>" id="alias_anime"
+                                    class="alias_anime" />
+                                <ul id="episode_page">
+                                    <?=$anime['episode_page']?>
+                                </ul>
+                                <div class="clr"></div>
+                                <div id="load_ep"></div>
+                                <div class="clr"></div>
                             </div>
                         </div>
                         <div class="clr"></div>
 
                     </section>
                     <section class="content_right">
-                    <div class="headnav_center"></div>
+                        <div class="headnav_center"></div>
 
                         <div class="clr"></div>
                         <div class="main_body">
@@ -246,7 +256,7 @@ $episodeArray = $fetchDetails['episode_id'];
                                         </div>
                                         <div class="viewport">
                                             <div class="overview">
-                                               <?php require_once('./php/include/recentRelease.php'); ?>
+                                                <?php require_once('./php/include/recentRelease.php'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -274,19 +284,21 @@ $episodeArray = $fetchDetails['episode_id'];
                         </style>
                         <script>
                             var leftamt;
+
                             function scrollFunction() {
-                                var scamt = (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
+                                var scamt = (document.documentElement.scrollTop ? document.documentElement.scrollTop :
+                                    document.body.scrollTop);
                                 var element = document.getElementById("media.net sticky ad");
                                 if (scamt > leftamt) {
                                     var leftPosition = element.getBoundingClientRect().left;
                                     element.className = element.className.replace(/(?:^|\s)fixclass(?!\S)/g, '');
                                     element.className += " fixclass";
                                     element.style.left = leftPosition + 'px';
-                                }
-                                else {
+                                } else {
                                     element.className = element.className.replace(/(?:^|\s)fixclass(?!\S)/g, '');
                                 }
                             }
+
                             function getElementTopLeft(id) {
                                 var ele = document.getElementById(id);
                                 var top = 0;
@@ -296,8 +308,12 @@ $episodeArray = $fetchDetails['episode_id'];
                                     left += ele.offsetLeft;
                                     ele = ele.offsetParent;
                                 }
-                                return { top: top, left: left };
+                                return {
+                                    top: top,
+                                    left: left
+                                };
                             }
+
                             function abcd() {
                                 TopLeft = getElementTopLeft("media.net sticky ad");
                                 leftamt = TopLeft.top;
@@ -333,24 +349,25 @@ $episodeArray = $fetchDetails['episode_id'];
     <div id="off_light"></div>
     <div class="clr"></div>
     <div class="mask"></div>
-        <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
+    <script type="text/javascript" src="<?=$base_url?>/js/files/combo.js"></script>
     <script type="text/javascript" src="<?=$base_url?>/js/files/video.js"></script>
     <script type="text/javascript" src="<?=$base_url?>/js/files/jquery.tinyscrollbar.min.js"></script>
     <?php include('./php/include/footer.php'); ?>
     <script>
-    if(document.getElementById('episode_page')){
-      var ep_start = $('#episode_page a.active').attr('ep_start');
-      var ep_end = $('#episode_page a.active').attr('ep_end');
-      var id = $("input#movie_id").val();
-      var default_ep = $("input#default_ep").val();
-      var alias = $("input#alias_anime").val();
-      loadListEpisode('#episode_page a.active',ep_start,ep_end,id,default_ep,alias);
-    }
-  </script>
+        if (document.getElementById('episode_page')) {
+            var ep_start = $('#episode_page a.active').attr('ep_start');
+            var ep_end = $('#episode_page a.active').attr('ep_end');
+            var id = $("input#movie_id").val();
+            var default_ep = $("input#default_ep").val();
+            var alias = $("input#alias_anime").val();
+            loadListEpisode('#episode_page a.active', ep_start, ep_end, id, default_ep, alias);
+        }
+    </script>
     <script>
         if (document.getElementById('scrollbar2')) {
             $('#scrollbar2').tinyscrollbar();
         }
     </script>
 </body>
+
 </html>
