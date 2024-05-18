@@ -4,7 +4,7 @@ require('../php/info.php');
 $id = $_GET['id'];
 
 // Fetch JSON data from the GoGoAnime API endpoint
-$json = file_get_contents("https://gogoanime-api-1.onrender.com/vidcdn/watch/$id");
+$json = file_get_contents("$apiLink/vidcdn/watch/$id");
 $video = json_decode($json, true);
 
 if (isset($video['sources']) && !empty($video['sources'])) {
