@@ -119,7 +119,7 @@ $episodeArray = $fetchDetails['episode_id'];
                                         <div class="anime_video_body_watch_items load">
                                             <div class="play-video">
                                                 <iframe
-                                                    src="https://player.ryuk.to?id=<?=$url?>&download=<?=$anime['ep_download']?>"
+                                                    src="<?=$base_url?>/player/player1.php?id=<?=$url?>&download=<?=$anime['ep_download']?>"
                                                     allowfullscreen="true" frameborder="0" marginwidth="0"
                                                     marginheight="0" scrolling="no"></iframe>
                                             </div>
@@ -150,7 +150,7 @@ $episodeArray = $fetchDetails['episode_id'];
                                     <ul>
                                         <li class="anime">
                                             <a href="#" class="active" rel="1"
-                                                data-video="https://player.ryuk.to?id=<?=$url?>&download=<?=$anime['ep_download']?>"><i
+                                                data-video="<?=$base_url?>/player/player1.php?id=<?=$url?>&download=<?=$anime['ep_download']?>"><i
                                                     class="iconlayer-server hydrax"></i>No Ads<span>Choose this
                                                     server</span></a>
                                         </li>
