@@ -64,6 +64,7 @@ php/info.php
 $base_url = "//{$_SERVER['SERVER_NAME']}";
 $website_name = "GogoAnime"; // The name u want for the website
 $apiLink = ""; // Go here https://github.com/KirixenYT/anime-api and host one, and paste the link without the '/' at the end
+$consumet = ""; // host ur own consumet api from here `https://github.com/consumet/api.consumet.org` and paste the api here without the `/` at the end
 if (date("d") > 15){
     $apiLink = ""; // same for here
 }
