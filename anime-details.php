@@ -5,8 +5,14 @@ $page_url=explode('/', $parts['path']);
 $url = $page_url[count($page_url)-1]  ;
 //$url = "naruto";
 $json = file_get_contents("$apiLink/getAnime/$url");
-$fetchDetails = json_decode($json, true); 
-$episodeArray = $fetchDetails['episode_id']; 
+$fetchDetails = json_decode($json, true);
+$episodeArray = $fetchDetails['episode_id'];
+
+
+$json1 = file_get_contents("$consumet/anime/gogoanime/info/$url");
+$fetchdetailss = json_decode($json1, true);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,20 +71,14 @@ $episodeArray = $fetchDetails['episode_id'];
                   <!---<p><a class="bookmark bookmark-manage" href="javascript:void(0)"><i></i>Click to manage book marks</a>
                   </p> --->
                   <p class="type"><span>Type: </span><?=$fetchDetails['type']?></p>
-                  <p class="type"><span>Plot Summary: </span><?=$fetchDetails['synopsis']?></p>
-                  <p class="type"><span>Genre: </span> <?php echo implode(', ', $fetchDetails['genres'])?></p>
-                  <p class="type"><span>Released: </span><?=$fetchDetails['released']?></p>
+                  <p class="type"><span>Plot Summary: </span><?=$fetchdetailss['description']?></p>
+                  <p class="type"><span>Genre: </span> <?php echo implode(', ', $fetchdetailss['genres'])?></p>
+                  <p class="type"><span>Released: </span><?=$fetchdetailss['releaseDate']?></p>
                   <p class="type"><span>Episodes: </span><?php echo count($fetchDetails['episode_id'])?></p>
                   <p class="type"><span>Status: </span>
-                    <a href="<?php if ($fetchDetails['status'] == 'Completed') {echo "/status/completed"; }   else  {echo "/status/ongoing";} ?>" title="<?=$fetchDetails['status']?> Anime"><?=$fetchDetails['status']?></a>
+                    <a href="<?php if ($fetchdetailss['status'] == 'Completed') {echo "/status/completed"; }   else  {echo "/status/ongoing";} ?>" title="<?=$fetchdetailss['status']?> Anime"><?=$fetchdetailss['status']?></a>
                   </p>
-                  <p class="type"><span>Language:</span> <?php $str = $fetchDetails['name'];
-                                                $last_word_start = strrpos ( $str , " ") + 1;
-                                                $last_word_end = strlen($str) - 1;
-                                                $last_word = substr($str, $last_word_start, $last_word_end);
-                                                if ($last_word == "(Dub)"){echo "Dubbed";} else {echo "Subbed";}
-                                            ?></p>
-                  <p class="type"><span>Other name: </span><?=$fetchDetails['othername']?></p>
+                  <p class="type"><span>Other name: </span><?=$fetchdetailss['otherName']?></p>
                 </div>
                 <div class="clr"></div>
                 <div class="anime_info_episodes">
@@ -103,7 +103,7 @@ $episodeArray = $fetchDetails['episode_id'];
        <div class="clr"></div>
     <div class="clr"></div>
               <div class="anime_info_body">
-                <script id="dsq-count-scr" src="//gogoanimetv.disqus.com/count.js" async></script>
+
                 <div class="anime_video_body_comment_name">
                   <div class="btm-center">
                     <div id="specialButton" class="specialButton">
@@ -120,14 +120,14 @@ $episodeArray = $fetchDetails['episode_id'];
                   (function () {  // DON'T EDIT BELOW THIS LINE
                     var d = document, s = d.createElement('script');
 
-                    s.src = '//gogoanimetv.disqus.com/embed.js';
+                    s.src = 'https://gogoanimesz.disqus.com/embed.js';
 
                     s.setAttribute('data-timestamp', +new Date());
+
                     (d.head || d.body).appendChild(s);
                   })();
                 </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
-                    rel="nofollow">comments powered by Disqus.</a></noscript>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
               </div>
             </div>
@@ -269,5 +269,6 @@ $episodeArray = $fetchDetails['episode_id'];
       $('#scrollbar2').tinyscrollbar();
     }
   </script>
+  <script id="dsq-count-scr" src="//gogoanimesz.disqus.com/count.js" async></script>
 </body>
 </html>
