@@ -90,5 +90,5 @@ php -S localhost:8888
 ```
 
 This will start the app on http://localhost:8888 <br>
-Make Sure You Edit $webUrl in php/info.php before starting in localhost.. <br>
+Make Sure You Edit $base_url in php/info.php before starting in localhost.. <br>
 And Enable the use of .htaccess in PHP enviornment
