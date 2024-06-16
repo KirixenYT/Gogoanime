@@ -1,3 +1,5 @@
+# Website Suspended lmao
+
 <details>
 <summary>Homepage</summary>
 <p align="center">
