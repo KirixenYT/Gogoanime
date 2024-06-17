@@ -1,4 +1,4 @@
-# Website Suspended lmao
+# nvm its back
 
 <details>
 <summary>Homepage</summary>
